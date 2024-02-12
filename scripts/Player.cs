@@ -61,6 +61,11 @@ public partial class Player : CharacterBody3D, ICollector
 		newRotation.Y = Mathf.LerpAngle(Rotation.Y, m_rotationDirection, (float)delta * 10f);
 		Rotation = newRotation;
 
+  		if (Position.Y < -10)
+		{
+			GetTree().ReloadCurrentScene();
+		}
+
 		// Scale Animation (Juice)
 		m_model.Scale = m_model.Scale.Lerp(new Vector3(1f, 1f, 1f), (float)delta * 10f);
 		
